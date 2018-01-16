@@ -30,7 +30,7 @@ function WebCrawler(max_tasks, logger_class) {
 
 WebCrawler.prototype.crawl = function(initial_url, callback) {
     if (!initial_url.startsWith('http')) {
-        initial_url = 'http://' + initial_url;
+        initial_url = 'https://' + initial_url;
     }
 
     let parsed_initial_url = url_lib.parse(initial_url);
