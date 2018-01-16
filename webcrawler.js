@@ -114,7 +114,7 @@ WebCrawler.prototype.url_should_be_crawled_as_node = function(url) {
         return false;
     }
 
-    const filetype_list = ['pdf', 'jpg', 'gif', 'js', 'css', 'png'];
+    const filetype_list = ['pdf', 'jpg', 'gif', 'js', 'css', 'png', 'svg'];
 
     const split_url = url.split('.');
     if (filetype_list.indexOf(split_url[split_url.length - 1]) !== -1) {
