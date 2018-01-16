@@ -219,7 +219,9 @@ WebCrawler.prototype._crawl_with_head_request = function(url) {
     request.on('error', e => {
         node.status = 'failure';
         node.error = e;
-
+        // TODO: Add logic to retry requests. Errors maybe due to server being
+        //          overloaded.
+        this._finalize_crawl(url); // The request errored out; finalize to free the worker
         this.note_error(`When crawling ${url}, got a ${e} (linked from ${this.graph.parents(url)}`);
     });
 
