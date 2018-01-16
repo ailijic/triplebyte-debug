@@ -2,8 +2,11 @@ const url_lib = require('url');
 
 module.exports.get_neighbors = function(body_str, url) {
     const paths_to_follow = get_url_strings_from_doc(body_str);
-
-    return get_urls_from_page(paths_to_follow, url);
+    // Remove anchor tags from `paths_to_follow`
+    const paths_no_anchor = paths_to_follow.map(
+        str => str.replace(/\#.*$/, '')
+    );
+    return get_urls_from_page(paths_no_anchor, url);
 }
 
 function clean_up_href(href) {
